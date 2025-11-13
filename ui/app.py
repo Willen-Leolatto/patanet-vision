@@ -149,7 +149,7 @@ with tab_search:
             # carrega amostra local
             try:
                 img = Image.open(pick).convert("RGB")
-                st.image(img, caption=f"Amostra: {Path(pick).name}", use_container_width=True)
+                st.image(img, caption=f"Amostra: {Path(pick).name}", width='stretch')
                 up_bytes = BytesIO()
                 img.save(up_bytes, format="PNG")
                 up_bytes.seek(0)
@@ -159,7 +159,7 @@ with tab_search:
         else:
             fake_up = None
             if up:
-                st.image(Image.open(up).convert("RGB"), caption=up.name, use_container_width=True)
+                st.image(Image.open(up).convert("RGB"), caption=up.name, width='stretch')
 
     with st.expander("Parâmetros de busca"):
         k = st.number_input("k (Top resultados)", 1, 20, 5, 1)
@@ -240,7 +240,7 @@ with tab_search:
                         except Exception:
                             pass
                 if pil is not None:
-                    st.image(pil, use_container_width=True)
+                    st.image(pil, width='stretch')
                 else:
                     st.warning("Não consegui abrir o caminho de imagem retornado (ver paths).")
                 st.caption(f"crop: `{crop_path}`\nsrc: `{src_path}`")
@@ -260,12 +260,12 @@ with tab_search:
                 st.markdown("**Bordas (Canny)**")
                 lo = st.slider("Canny low", 0, 255, 80, 1, key="canny_lo_prev")
                 hi = st.slider("Canny high", 0, 255, 160, 1, key="canny_hi_prev")
-                st.image(bgr_to_pil(canny_edges(bgr, lo, hi)), use_container_width=True)
+                st.image(bgr_to_pil(canny_edges(bgr, lo, hi)), width='stretch')
             with colF2:
                 st.markdown("**Quantização de cor (K-means)**")
                 kq = st.slider("K cores", 2, 12, 6, 1, key="kq_prev")
                 quant, centers = kmeans_quantize(bgr, kq)
-                st.image(bgr_to_pil(quant), use_container_width=True)
+                st.image(bgr_to_pil(quant), width='stretch')
 
 # -------------------------
 # TAB 2 — Analisar
@@ -280,7 +280,7 @@ with tab_analyze:
     if up2:
         with col1:
             img = Image.open(up2).convert("RGB")
-            st.image(img, caption="Imagem enviada", use_container_width=True)
+            st.image(img, caption="Imagem enviada", width='stretch')
 
         if mode.startswith("Conv"):
             with st.expander("Parâmetros (DL)"):
@@ -306,7 +306,7 @@ with tab_analyze:
                     p = aresp["annotated_path"]
                     st.write("Imagem anotada:")
                     if Path(p).exists():
-                        st.image(Image.open(p).convert("RGB"), use_container_width=True)
+                        st.image(Image.open(p).convert("RGB"), width='stretch')
                     else:
                         st.caption(p)
 
@@ -340,15 +340,15 @@ with tab_analyze:
             colA, colB = st.columns([1,1], gap="large")
             with colA:
                 st.markdown("**Bordas (Canny) sobrepostas**")
-                st.image(bgr_to_pil(edges), use_container_width=True)
+                st.image(bgr_to_pil(edges), width='stretch')
                 st.markdown("**Quantização de cor (K-means)**")
-                st.image(bgr_to_pil(quant), use_container_width=True)
+                st.image(bgr_to_pil(quant), width='stretch')
 
             with colB:
                 st.markdown("**Mapas HSV (tons)**")
-                st.image(V, caption="Value (brilho)", clamp=True, use_container_width=True)
-                st.image(S, caption="Saturation", clamp=True, use_container_width=True)
-                st.image(H, caption="Hue", clamp=True, use_container_width=True)
+                st.image(V, caption="Value (brilho)", clamp=True, width='stretch')
+                st.image(S, caption="Saturation", clamp=True, width='stretch')
+                st.image(H, caption="Hue", clamp=True, width='stretch')
 
             st.markdown("---")
             st.markdown("### Regiões (estatísticas HSV + foco)")
@@ -360,5 +360,5 @@ with tab_analyze:
             ]:
                 with col:
                     st.write(f"**{name}**")
-                    st.image(bgr_to_pil(reg), use_container_width=True)
+                    st.image(bgr_to_pil(reg), width='stretch')
                     st.json(region_stats_hsv(reg))

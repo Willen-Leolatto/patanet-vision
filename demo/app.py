@@ -122,7 +122,7 @@ if uploaded:
         st.error(f"Falha ao abrir imagem: {e}")
         st.stop()
         
-    st.image(img, caption="Consulta", use_container_width=False, width=420)
+    st.image(img, caption="Consulta", width='content')
 
     # monta parâmetros da API
     params = dict(
@@ -184,7 +184,7 @@ if uploaded:
         df_breeds = pd.DataFrame(
             [{"raça": b.get("label"), "confiança(%)": _pct(b.get("prob", 0.0))} for b in breed_list]
         )
-        st.dataframe(df_breeds, use_container_width=True)
+        st.dataframe(df_breeds, width='stretch')
         for b in breed_list:
             st.progress(min(1.0, float(b.get("prob", 0.0))), text=f"{b.get('label')} – {_fmt_pct(b.get('prob', 0.0))}")
 
@@ -229,7 +229,7 @@ if uploaded:
                 if img_path and os.path.exists(img_path):
                     try:
                         im = Image.open(img_path).convert("RGB")
-                        st.image(im, use_container_width=True)
+                        st.image(im, width='stretch')
                     except Exception:
                         st.write(f"Imagem: {img_path}")
                 else:
@@ -274,7 +274,7 @@ if uploaded:
                 )
             )
         df_diag = pd.DataFrame(rows)
-        st.dataframe(df_diag, use_container_width=True)
+        st.dataframe(df_diag, width='stretch')
         _download_button_csv(df_diag, "diagnostico_topk.csv", "Baixar CSV (Top-K)")
 
     # ---------------------------

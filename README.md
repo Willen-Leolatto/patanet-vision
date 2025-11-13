@@ -164,7 +164,7 @@ streamlit run demo/app.py
 
 Mostra Top-K com percentuais, diagnóstico e atributos simples.
 
-Ajustado para use_container_width=True.
+Ajustado para width='stretch'.
 
 🧪 Avaliação / Grid / Retomada
 
@@ -264,7 +264,7 @@ ModuleNotFoundError: requests → pip install requests.
 
 FAISS/Torch em Windows → use versões estáveis (faiss-cpu==1.7.4, Torch LTS).
 
-Streamlit use_column_width → já migrado para use_container_width=True.
+Streamlit use_column_width → já migrado para width='stretch'.
 
 Sem métricas → confirme outputs/eval_results.csv e outputs/metrics.json.
 
