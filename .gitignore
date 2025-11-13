@@ -1,0 +1,131 @@
+
+data/
+calib/
+eval/
+index/
+outputs/
+
+
+# ===== Python core =====
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# ===== Virtual environments & env files =====
+.venv/
+venv/
+env/
+ENV/
+*.env
+.env
+.env.*
+*secrets*.toml
+*secrets*.json
+
+# ===== OS / Editors =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+# ===== Build / Dist =====
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ===== Logs & Caches =====
+logs/
+*.log
+*.pid
+.cache/
+*.cache
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+.ipynb_checkpoints/
+pip-wheel-metadata/
+
+# ===== Streamlit =====
+.streamlit/state/
+.streamlit/cache/
+.streamlit/**/cache/
+.streamlit/**/state/
+.streamlit/secrets.toml
+
+# ===== FastAPI / Uvicorn / DB =====
+*.sqlite3
+*.db
+uvicorn*.log
+
+# ===== Project data (do NOT version datasets ou media bruta) =====
+
+
+# ===== Outputs: ignorar pesados por padrão, manter resumos úteis =====
+outputs/*
+!outputs/metrics.json
+!outputs/per_class_summary.csv
+!outputs/confusion_matrix.csv
+!outputs/confusion_matrix_top25.csv
+!outputs/confusion_matrix_top25.png
+!outputs/top_confusions.csv
+!outputs/eval_per_class.csv
+!outputs/grid_round*_summary.csv
+
+# Partials/sweeps/refinements (gerados em volume) — ignorar
+outputs/*_partial*.csv
+outputs/refine_*.csv
+outputs/sweep_*.csv
+outputs/grid_*.csv
+outputs/head_build_report.csv
+
+# Visual byproducts — ignore por padrão (mantenha só se precisar)
+outputs/*.png
+outputs/*.jpg
+
+# ===== Index / embeddings / caches =====
+index/
+index/*.faiss
+index/*.npy
+index/*.npz
+index/*.bin
+index/*.pkl
+index/*.json
+
+# ===== Uploads & crops =====
+uploads/
+user_uploads/
+outputs/crops/
+outputs/previews/
+
+# ===== Models & checkpoints =====
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.tflite
+
+# ===== Coverage / Testing =====
+htmlcov/
+.coverage
+.coverage.*
+.tox/
+.nox/
+
+# ===== Docker =====
+.dockerignore
+
+# ===== DVC / Git LFS (se usar) =====
+.dvc/
+*.dvc
+.lfsconfig
+
+# ===== Misc =====
+*.swp
+*.swo
+*.bak
+*.tmp
