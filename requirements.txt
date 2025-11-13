@@ -1,0 +1,16 @@
+ultralytics==8.3.0
+opencv-python
+Pillow
+torch --extra-index-url https://download.pytorch.org/whl/cu121
+transformers
+faiss-cpu
+numpy
+pandas
+scikit-learn
+albumentations
+tqdm
+fastapi
+uvicorn[standard]
+python-multipart
+streamlit
+python-dotenv

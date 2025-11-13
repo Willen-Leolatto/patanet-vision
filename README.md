@@ -311,5 +311,4 @@ python scripts/prepare_eval_and_grid.py eval --api http://127.0.0.1:8000 --root 
 python scripts/prepare_eval_and_grid.py grid --api http://127.0.0.1:8000 --root eval --max-images 600 --workers 4 --timeout 60 --sleep-between 0.0 --objective mixed --sweep "w_krec=[0.4,0.6,0.8];w_head=[0.1,0.2];w_color=[0.05,0.1];krec_k1=[12,20,30];krec_k2=[4,6,8];krec_lambda=[0.3,0.5]" --out outputs/grid_round1.csv
 
 
-Licenças: respeite as licenças dos datasets (Stanford Dogs, Oxford-IIIT Pets) e LGPD/GDPR para imagens de usuários.#   p a t a n e t - v i s i o n  
- 
+Licenças: respeite as licenças dos datasets (Stanford Dogs, Oxford-IIIT Pets) e LGPD/GDPR para imagens de usuários.
