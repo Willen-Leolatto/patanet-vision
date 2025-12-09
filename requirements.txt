@@ -1,16 +1,38 @@
+# Índice extra para baixar o PyTorch com suporte a CUDA 12.1 (se disponível)
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# Visão computacional / deep learning
 ultralytics==8.3.0
-opencv-python
-Pillow
-torch --extra-index-url https://download.pytorch.org/whl/cu121
-transformers
-faiss-cpu
-numpy
-pandas
-scikit-learn
-albumentations
-tqdm
-fastapi
-uvicorn[standard]
-python-multipart
-streamlit
-python-dotenv
+opencv-python==4.10.0.84
+Pillow==10.4.0
+torch==2.3.1
+
+# NLP e modelos pré-treinados
+transformers==4.44.2
+
+# Busca vetorial
+faiss-cpu==1.8.0.post1
+
+# Numérico / Dataframes
+numpy<2.0.0          # mantém 1.26.4, que tem wheel estável pra py3.11
+pandas==2.2.3
+
+# ML tradicional
+scikit-learn==1.5.2
+
+# Data augmentation
+albumentations==1.4.21
+
+# Utilidades
+tqdm==4.66.5
+
+# Backend API
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.17
+
+# Frontend web para demo
+streamlit==1.39.0
+
+# Variáveis de ambiente
+python-dotenv==1.0.1
