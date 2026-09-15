@@ -1,38 +1,21 @@
-# Índice extra para baixar o PyTorch com suporte a CUDA 12.1 (se disponível)
---extra-index-url https://download.pytorch.org/whl/cu121
+# Dependências completas de produção (usadas pelo Dockerfile).
+# Instale o torch CPU-only separadamente via:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.32,<1.0
+pydantic>=2.9,<3.0
+pydantic-settings>=2.6,<3.0
+python-multipart>=0.0.12
+opencv-python-headless>=4.10,<5.0
+numpy>=1.26,<2.0
 
-# Visão computacional / deep learning
-ultralytics==8.3.0
-opencv-python==4.10.0.84
-Pillow==10.4.0
-torch==2.3.1
+# Modelos de visão/embeddings
+ultralytics>=8.3,<9.0
+open-clip-torch>=2.24,<3.0
+pillow>=10.4,<11.0
 
-# NLP e modelos pré-treinados
-transformers==4.44.2
+# Índice biométrico
+faiss-cpu>=1.8,<2.0
 
-# Busca vetorial
-faiss-cpu==1.8.0.post1
-
-# Numérico / Dataframes
-numpy<2.0.0          # mantém 1.26.4, que tem wheel estável pra py3.11
-pandas==2.2.3
-
-# ML tradicional
-scikit-learn==1.5.2
-
-# Data augmentation
-albumentations==1.4.21
-
-# Utilidades
-tqdm==4.66.5
-
-# Backend API
-fastapi==0.115.5
-uvicorn[standard]==0.32.1
-python-multipart==0.0.17
-
-# Frontend web para demo
-streamlit==1.39.0
-
-# Variáveis de ambiente
-python-dotenv==1.0.1
+# Laudo via VLM
+google-genai>=0.3,<1.0
